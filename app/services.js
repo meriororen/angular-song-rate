@@ -1,5 +1,5 @@
 /*jslint node: true */
-/*global angular */
+/*global angular, localStorage */
 "use strict";
 
 angular.module("myApp.services", []).factory("songService", function() {
