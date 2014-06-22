@@ -10,6 +10,6 @@
 		"font-awesome": "latest"
 	},
 	"devDependencies": {
-		"angular-mocks": "latest",
+		"angular-mocks": "latest"
 	}
 }
