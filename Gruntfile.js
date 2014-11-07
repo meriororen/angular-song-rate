@@ -114,11 +114,7 @@ module.exports = function(grunt) {
       },
       junit: {
         singleRun: true,
-        reporters: ['junit'],
-        junitReporter: {
-          outputFile: 'TEST-angular-song-rate.xml',
-          suite: ''
-        }
+        reporters: ['junit']
       },
       continuous: {
         singleRun: false,
