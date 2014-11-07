@@ -7,20 +7,6 @@ module.exports = function(grunt) {
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     
-    bower: {
-      install: {
-        options: {
-          install: true,
-          copy: false,
-          targetDir: './libs',
-          cleanTargetDir: true
-        },
-        bowerOptions: {
-          forceLatest: true
-        }
-      }
-    },
-    
     uglify: {
       dist: {
         files: {
@@ -143,12 +129,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-html2js');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-bower-task');
+
   grunt.loadNpmTasks('grunt-karma');
   
-  grunt.registerTask('dev', [ 'clean:dist', 'bower', 'connect:server', 'watch:dev' ]);
-  grunt.registerTask('test', [ 'clean:dist', 'bower', 'jshint', 'karma:continuous' ]);
-  grunt.registerTask('minified', [ 'clean:dist', 'bower', 'connect:server', 'watch:min' ]);
-  grunt.registerTask('package', [ 'clean:dist', 'bower', 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist',
+  grunt.registerTask('dev', [ 'clean:dist', connect:server', 'watch:dev' ]);
+  grunt.registerTask('test', [ 'clean:dist', 'jshint', 'karma:continuous' ]);
+  grunt.registerTask('minified', [ 'clean:dist', 'connect:server', 'watch:min' ]);
+  grunt.registerTask('package', [ 'clean:dist', 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist',
     'uglify:dist', 'less:dist', 'clean:temp', 'compress:dist' ]);
 };
