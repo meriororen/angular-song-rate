@@ -112,7 +112,14 @@ module.exports = function(grunt) {
       unit: {
         singleRun: true
       },
-      
+      junit: {
+        singleRun: true,
+        reporters: ['junit'],
+        junitReporter: {
+          outputFile: 'test-results.xml',
+          suite: ''
+        }
+      },
       continuous: {
         singleRun: false,
         autoWatch: true
@@ -133,8 +140,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-karma');
   
   grunt.registerTask('dev', [ 'clean:dist', 'connect:server', 'watch:dev' ]);
-  grunt.registerTask('tdd', [ 'clean:dist', 'jshint', 'karma:continuous' ]);
-  grunt.registerTask('test', [ 'clean:dist', 'jshint', 'karma:junit' ]);
+  grunt.registerTask('test', [ 'clean:dist', 'jshint', 'karma:continuous' ]);
+  grunt.registerTask('junit', [ 'clean:dist', 'jshint', 'karma:junit' ]);
   grunt.registerTask('minified', [ 'clean:dist', 'connect:server', 'watch:min' ]);
   grunt.registerTask('package', [ 'clean:dist', 'jshint', 'karma:unit', 'html2js:dist', 'concat:dist',
     'uglify:dist', 'less:dist', 'clean:temp', 'compress:dist' ]);
