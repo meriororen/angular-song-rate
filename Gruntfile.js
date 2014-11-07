@@ -114,7 +114,7 @@ module.exports = function(grunt) {
       },
       junit: {
         singleRun: true,
-        reporters: ['junit']
+        reporters: ['junit', 'coverage']
       },
       continuous: {
         singleRun: false,
