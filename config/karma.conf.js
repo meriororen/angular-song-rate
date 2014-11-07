@@ -25,7 +25,8 @@ module.exports = function(config) {
     },
     coverageReporter: {
       type : 'lcov',
-      dir : 'results/'
+      dir : 'results/',
+      subdir: '.'
     },
     reporters: [ 'progress' ],
     colors: true,
